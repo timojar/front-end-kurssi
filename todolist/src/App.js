@@ -3,18 +3,17 @@ import './App.css'
 import ToDoTable from './TodoList'
 
 function App () {
-  const [todo, setTodo] = useState({ desc: '', date: '', id: ''})
+  const [todo, setTodo] = useState({ desc: '', date: ''})
   const [todos, setTodos] = useState([])
 
   const inputChanged = (event) => { 
     setTodo({ ...todo, [event.target.name]: [event.target.value]}) 
 }
   const addTodo = (event) => {
-    event.preventDefault()
-   let editedToDo = todo
-   editedToDo.id = new Date().getTime()
-    setTodos([...todos, editedToDo])
-    setTodo({ desc: '', date: '', id: ''})
+    event.preventDefault();    
+    todo.id = new Date().getTime()
+    setTodos([...todos, todo])
+    setTodo({ desc: '', date: ''})
   }
 
 const deleteTodo =(id) =>{
@@ -28,7 +27,6 @@ const deleteTodo =(id) =>{
 
         <input type="date" name="date"onChange={inputChanged} value={todo.date}/>
         <input type="text" name="desc" onChange={inputChanged} value={todo.desc}/> <button onClick={addTodo}> Add </button>
-
         <ToDoTable deleteTodo={deleteTodo} todos={todos}/>  
 
     </div>
