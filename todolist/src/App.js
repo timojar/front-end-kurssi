@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function App() {
   const [todo, setTodo] = useState({ desc: "", date: "", priority: "" });
@@ -24,24 +26,10 @@ function App() {
         onChange={inputChanged}
         value={todo.date}
       />
-      <input
-        type="text"
-        name="desc"
-        onChange={inputChanged}
-        value={todo.desc}
-      />
-      <input
-        type="text"
-        name="priority"
-        onChange={inputChanged}
-        value={todo.priority}
-      />
-      <button onClick={addTodo}> Add </button>
-      <button onClick={deleteTodo}>Delete</button>
-      <div
-        className="ag-theme-material"
-        style={{ height: "700px", width: "70%", margin: "auto" }}
-      ></div>
+      <TextField name="description" label="Description" variant="standard" onChange={inputChanged} value={todo.description}/> 
+      <Button onClick={addTodo} variant="contained">Add </Button>       
+      
+     
     </div>
   );
 }
