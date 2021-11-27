@@ -10,6 +10,7 @@ export default function ToDoList(props) {
             <tr key={index}>
               <td>{todo.date}</td>
               <td>{todo.desc}</td>
+              <td>{todo.priority}</td>
               <td>
                 <button onClick={() => props.deleteTodo(todo.id)}>
                   Delete
